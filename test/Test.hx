@@ -1,3 +1,4 @@
+import fullcontact.FullContactAPI;
 import utest.Assert;
 
 class Test
@@ -6,7 +7,7 @@ class Test
 
 	public function testApi()
 	{
-
+		var api = new FullContactAPI(Config.FULLCONTACT_APIKEY);
 	}
 
 	static function main()
