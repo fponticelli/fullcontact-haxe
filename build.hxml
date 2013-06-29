@@ -4,5 +4,8 @@
 -cp test
 -cp config
 -lib utest
+-lib thx-react
+-lib thx-core
+-lib nodejs
 -D nodejs
 -cmd /usr/local/bin/node bin/test.js
