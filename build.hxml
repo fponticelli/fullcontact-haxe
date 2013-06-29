@@ -1,0 +1,7 @@
+-main Test
+-js bin/test.js
+-cp src
+-cp test
+-lib utest
+-D nodejs
+-cmd /usr/local/bin/node bin/test.js
