@@ -68,9 +68,8 @@ class PersonAPI
 		return format;
 	}
 
-	static function merge(src : LookupPersonOptions, ?dst : LookupPersonOptions)
+	static function merge(src : LookupPersonOptions, dst : LookupPersonOptions)
 	{
-		if(null == dst) dst = {};
 		Reflect.fields(src).map(function(key) Reflect.setField(dst, key, Reflect.field(src, key)));
 		return dst;
 	}

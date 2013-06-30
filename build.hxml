@@ -8,4 +8,4 @@
 -lib thx-core
 -lib nodejs
 -D nodejs
--cmd /usr/local/bin/node bin/test.js
+#-cmd /usr/local/bin/node bin/test.js

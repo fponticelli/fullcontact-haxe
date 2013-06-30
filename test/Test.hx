@@ -17,6 +17,15 @@ class Test
 		});
 	}
 
+	public function testLookupDataByEmail()
+	{
+		var api = new PersonDataAPI(Config.FULLCONTACT_APIKEY);
+		api.lookupByEmail("franco.ponticelli@gmail.com").assertPromise(function(data) {
+			trace(data);
+			Assert.notNull(data.requestId);
+		});
+	}
+
 	public function testLookupByEmailHtml()
 	{
 		var api = new PersonAPI(Config.FULLCONTACT_APIKEY);
