@@ -1,4 +1,5 @@
-import fullcontact.FullContactAPI;
+import fullcontact.PersonAPI;
+import fullcontact.PersonDataAPI;
 import utest.Assert;
 import thx.react.Promise;
 using Test;
@@ -8,11 +9,19 @@ class Test
 	static var TIMEOUT = 4000;
 	public function new() { }
 
-	public function testApi()
+	public function testLookupByEmail()
 	{
-		var api = new FullContactAPI(Config.FULLCONTACT_APIKEY);
-		api.lookupPersonByEmail("franco.ponticelli@gmail.com").assertPromise(function(data) {
-			Assert.stringContains('"requestId', data);
+		var api = new PersonAPI(Config.FULLCONTACT_APIKEY);
+		api.lookupByEmail("franco.ponticelli@gmail.com").assertPromise(function(data) {
+			Assert.stringContains('"requestId"', data);
+		});
+	}
+
+	public function testLookupByEmailHtml()
+	{
+		var api = new PersonAPI(Config.FULLCONTACT_APIKEY);
+		api.lookupByEmail("franco.ponticelli@gmail.com", { format : Html }).assertPromise(function(data) {
+			Assert.stringContains('<!DOCTYPE HTML>', data);
 		});
 	}
 
