@@ -1,5 +1,5 @@
+import fullcontact.PersonRawAPI;
 import fullcontact.PersonAPI;
-import fullcontact.PersonDataAPI;
 import utest.Assert;
 import thx.react.Promise;
 using Test;
@@ -11,7 +11,7 @@ class Test
 
 	public function testLookupByEmail()
 	{
-		var api = new PersonAPI(Config.FULLCONTACT_APIKEY);
+		var api = new PersonRawAPI(Config.FULLCONTACT_APIKEY);
 		api.lookupByEmail("franco.ponticelli@gmail.com").assertPromise(function(data) {
 			Assert.stringContains('"requestId"', data);
 		});
@@ -19,7 +19,7 @@ class Test
 
 	public function testLookupDataByEmail()
 	{
-		var api = new PersonDataAPI(Config.FULLCONTACT_APIKEY);
+		var api = new PersonAPI(Config.FULLCONTACT_APIKEY);
 		api.lookupByEmail("franco.ponticelli@gmail.com").assertPromise(function(data) {
 			Assert.notNull(data.requestId);
 		});
@@ -27,7 +27,7 @@ class Test
 
 	public function testLookupByEmailHtml()
 	{
-		var api = new PersonAPI(Config.FULLCONTACT_APIKEY);
+		var api = new PersonRawAPI(Config.FULLCONTACT_APIKEY);
 		api.lookupByEmail("franco.ponticelli@gmail.com", { format : Html }).assertPromise(function(data) {
 			Assert.stringContains('<!DOCTYPE HTML>', data);
 		});
