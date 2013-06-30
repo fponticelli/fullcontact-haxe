@@ -21,7 +21,6 @@ class Test
 	{
 		var api = new PersonDataAPI(Config.FULLCONTACT_APIKEY);
 		api.lookupByEmail("franco.ponticelli@gmail.com").assertPromise(function(data) {
-			trace(data);
 			Assert.notNull(data.requestId);
 		});
 	}
